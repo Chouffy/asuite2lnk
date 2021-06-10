@@ -90,3 +90,4 @@ for asuite_db_item in tbl_list_asuite_db:
             del lnk_title, lnk_path, lnk_work_path, lnk_parameter, lnk_icon_path
 
 print("ASuite2lnk done!")
+input("Press enter to leave the script...")
