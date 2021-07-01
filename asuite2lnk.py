@@ -3,8 +3,12 @@
 # Parse an ASuite database into LNK files (Windows Shortcuts).
 # Useful if you have an existing ASuite database that you want to use externally (Windows Search, Keypirinha, ...).
 
+import shutil
+import os
+import sqlite3
+
 # Use the pylnk3 library https://github.com/strayge/pylnk
-import pylnk3, sqlite3
+import pylnk3
 
 # All directory must have double backslash (one is escape character) and no last backslash
 
@@ -46,6 +50,15 @@ def replace_illegal_characters(var):
     var = var.replace(">", "-")
     var = var.replace("|", "-")
     return var
+
+# Ask if user wants to purge folder
+user_input = input("Press [p] to purge all file in the folder: ")
+if user_input == "p":
+    # Delete the directory
+    shutil.rmtree(_TARGET_LNK_FOLDER)
+    # Re-create it
+    os.makedirs(_TARGET_LNK_FOLDER)
+    print("Directory purged.")
 
 # Read database
 asuite_db = sqlite3.connect(_ASUITE_SQLITE_DB)
