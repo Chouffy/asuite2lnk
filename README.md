@@ -1,5 +1,5 @@
 # asuite2lnk
-Parse an ASuite database into LNK files (Windows Shortcuts)
+Parse an ASuite database into LNK files (Windows Shortcuts), which means parsing SQLite entries into `pylnk3`.
 
 ## How to use 
 
